@@ -75,21 +75,47 @@ class Operation {
         divContainer.appendChild(result);
         
         const buttonTest = document.createElement('button');
-        buttonTest.textContent = 'test';
+        buttonTest.textContent = ' test ';
         buttonTest.classList.add('buttonTest');
         buttonTest.classList.add(this.name);
         divContainer.appendChild(buttonTest);
 
 
         container.appendChild(divContainer);
+        this.activEvenement();
+    }
+    activEvenement() {
+        document.querySelector(`.${this.name}.buttonTest`).addEventListener('click',()=>{
+            console.log('bouton test click');
+            // compare result to good result
+            const value1 = document.querySelector(`.${this.name}.input1`).value;
+            // console.log('value1:', value1)
+            const value2 = document.querySelector(`.${this.name}.input2`).value;
+            // console.log('value2:', value2)
+
+            const goodResult = eval(`${value1}${this.operator}${value2}`);
+            // console.log('goodResult:', goodResult);
+            
+            const userResult = document.querySelector(`.${this.name}.result`).value;
+            if (userResult == goodResult){
+                console.log('good result ',goodResult)
+                document.querySelector(`.${this.name}.result`).style.backgroundColor  = "green"
+            }else{
+                console.log('bad result')
+                document.querySelector(`.${this.name}.result`).style.backgroundColor  = "red"
+            }
+
+
+        })
+
     }
     randomNumber(){
         let numberFactor=0;
         if (this.level = 1){
-            numberFactor=10;
+            numberFactor=1;
         };
         if (this.level = 2){
-            numberFactor=100;
+            numberFactor=10;
         }; // TODO manage other levels
         const num = Math.round(numberFactor*Math.random());
         // console.log(num)
