@@ -1,10 +1,12 @@
-console.log('jeu math')
+// Patrick 01/2022
+
+console.log('math_games')
 
 class Operation {
-    constructor(name,operator,level){
+    constructor(name,operator){
         this.name = name;
         this.operator = operator;
-        this.level=level;
+        this.level=1;
     }
     init() {
         const container = document.getElementById('container_operations');
@@ -18,6 +20,8 @@ class Operation {
         const input1 = document.createElement('input');
         input1.classList.add('input1')
         input1.classList.add(this.name)
+        input1.value = this.randomNumber()
+
         divContainer.appendChild(input1);
 
         const operatorP = document.createElement('p');
@@ -30,6 +34,7 @@ class Operation {
         const input2 = document.createElement('input');
         input2.classList.add('input2')
         input2.classList.add(this.name)
+        input2.value = this.randomNumber()
         divContainer.appendChild(input2);
 
         const operatorEgal = document.createElement('p');
@@ -42,24 +47,37 @@ class Operation {
         result.classList.add('result')
         result.classList.add(this.name)
         divContainer.appendChild(result);
+        
+        const buttonTest = document.createElement('button');
+        buttonTest.textContent = 'test';
+        buttonTest.classList.add('buttonTest');
+        buttonTest.classList.add(this.name);
+        divContainer.appendChild(buttonTest);
+
 
         container.appendChild(divContainer);
     }
     randomNumber(){
-        const numberFactor=0;
+        let numberFactor=0;
         if (this.level = 1){
             numberFactor=10;
+        };
+        if (this.level = 2){
+            numberFactor=100;
         }; // TODO manage other levels
         const num = Math.round(numberFactor*Math.random());
+        // console.log(num)
         return num;
     }
         
 };
 
-const level = 1
+
 const operations =[['addition','+'],['multiplication','*'],['soustraction','-'],['division','/']]
 for (operation of operations){
-    const newOperation = new Operation(operation[0],operation[1],level);
+    const newOperation = new Operation(operation[0],operation[1]);
     newOperation.init();
+    // newOperation.randomNumber()
+
 };
 
