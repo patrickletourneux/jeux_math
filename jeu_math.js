@@ -6,6 +6,7 @@ class Operation {
     constructor(name,operator){
         this.name = name;
         this.operator = operator;
+        this.levels=[1,2,3];
         this.level=1;
     }
     init() {
@@ -17,6 +18,31 @@ class Operation {
         const title = document.createElement('h1');
         title.textContent=this.name;
         divContainer.appendChild(title);
+
+        const divContainerLevels = document.createElement('div');
+        divContainerLevels.classList.add('levels');
+        divContainerLevels.classList.add(this.name);
+        const labelLevel = document.createElement('label');
+        labelLevel.for = 'level';
+        labelLevel.textContent='level  ';
+        divContainerLevels.appendChild(labelLevel);
+        const inputLevel = document.createElement('input');
+        inputLevel.type = 'number';
+        inputLevel.id = 'level';
+        inputLevel.name = 'level';
+        inputLevel.min = 1;
+        inputLevel.max = 5;
+        inputLevel.value = 1;
+        inputLevel.classList.add(this.name);
+        inputLevel.classList.add('level');
+        divContainerLevels.appendChild(inputLevel);
+        divContainer.appendChild(divContainerLevels);
+
+
+        const line = document.createElement('div');
+        line.textContent='-------------------';
+        divContainer.appendChild(line);
+
         const input1 = document.createElement('input');
         input1.classList.add('input1')
         input1.classList.add(this.name)
