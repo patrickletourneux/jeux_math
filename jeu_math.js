@@ -21,6 +21,9 @@ class Operation {
         divContainer.appendChild(input1);
 
         const operatorP = document.createElement('p');
+        operatorP.classList.add('operatorP');
+        operatorP.classList.add(this.name);
+
         operatorP.textContent=this.operator;
         divContainer.appendChild(operatorP);
 
@@ -30,6 +33,8 @@ class Operation {
         divContainer.appendChild(input2);
 
         const operatorEgal = document.createElement('p');
+        operatorEgal.classList.add('operatorEgal')
+        operatorEgal.classList.add(this.name)
         operatorEgal.textContent='=';
         divContainer.appendChild(operatorEgal);
 
@@ -47,3 +52,7 @@ const operatorAddition = new Operation('addition','+',1);
 operatorAddition.init();
 const operatorMultiplication = new Operation('multiplication','*',1);
 operatorMultiplication.init();
+const operatorSoustraction = new Operation('soustraction','-',1);
+operatorSoustraction.init();
+const operatorDivision = new Operation('division','/',1);
+operatorDivision.init();

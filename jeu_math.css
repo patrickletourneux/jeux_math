@@ -1,3 +1,26 @@
+#container_operations{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
 .container_operation{
-    border: 1px black solid
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px black solid;
+    padding: 1rem;
+    margin: 1rem;
+    width: 200px;
+}
+
+.operatorP, .operatorEgal{
+    display: inline;
+}
+
+input{
+    width: 50  px;
 }
