@@ -45,6 +45,14 @@ class Operation {
 
         container.appendChild(divContainer);
     }
+    randomNumber(){
+        const numberFactor=0;
+        if (this.level = 1){
+            numberFactor=10;
+        }; // TODO manage other levels
+        const num = Math.round(numberFactor*Math.random());
+        return num;
+    }
         
 };
 
