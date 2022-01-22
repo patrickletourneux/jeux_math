@@ -56,11 +56,10 @@ class Operation {
         
 };
 
-const operatorAddition = new Operation('addition','+',1);
-operatorAddition.init();
-const operatorMultiplication = new Operation('multiplication','*',1);
-operatorMultiplication.init();
-const operatorSoustraction = new Operation('soustraction','-',1);
-operatorSoustraction.init();
-const operatorDivision = new Operation('division','/',1);
-operatorDivision.init();
+const level = 1
+const operations =[['addition','+'],['multiplication','*'],['soustraction','-'],['division','/']]
+for (operation of operations){
+    const newOperation = new Operation(operation[0],operation[1],level);
+    newOperation.init();
+};
+
