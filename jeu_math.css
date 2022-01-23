@@ -26,6 +26,9 @@ input{
     width: 50  px;
     text-align: center;
 }
+.result{
+    height: 2rem;
+}
 
 h1{
     font-size: 1.5rem;
@@ -38,4 +41,8 @@ h1{
 }
 #reset_all{
     background-color: yellow;
+}
+
+button{
+    height: 2rem;
 }
