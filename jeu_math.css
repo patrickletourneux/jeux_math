@@ -30,3 +30,9 @@ input{
 h1{
     font-size: 1.5rem;
 }
+
+.global_score{
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+}

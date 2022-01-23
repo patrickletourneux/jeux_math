@@ -61,20 +61,21 @@ class Operation {
         divContainer.appendChild(operatorP);
 
         const input2 = document.createElement('input');
-        input2.classList.add('input2')
-        input2.classList.add(this.name)
-        input2.value = this.randomNumber()
+        input2.classList.add('input2');
+        input2.classList.add(this.name);
+        input2.value = this.randomNumber();
         divContainer.appendChild(input2);
 
         const operatorEgal = document.createElement('p');
-        operatorEgal.classList.add('operatorEgal')
-        operatorEgal.classList.add(this.name)
+        operatorEgal.classList.add('operatorEgal');
+        operatorEgal.classList.add(this.name);
         operatorEgal.textContent = '=';
         divContainer.appendChild(operatorEgal);
 
         const result = document.createElement('input');
-        result.classList.add('result')
-        result.classList.add(this.name)
+        result.classList.add('result');
+        result.classList.add(this.name);
+        result.style.backgroundColor = '#ccc';
         divContainer.appendChild(result);
 
         const buttonTest = document.createElement('button');
@@ -93,7 +94,7 @@ class Operation {
 
         const labelScore = document.createElement('label');
         labelScore.for = 'score';
-        labelScore.textContent = 'score  ';
+        labelScore.textContent = 'local_score  ';
         divContainerScore.appendChild(labelScore);
 
         const localScore = document.createElement('input');
@@ -132,6 +133,7 @@ class Operation {
                     this.scoreOperation++;
                     console.log('this.scoreOperation', this.scoreOperation);
                     Operation.addOneToGlobalScore();
+                    document.getElementById('global_score').textContent = Operation.scoreOperations;
                     document.querySelector(`.${this.name}.result`).style.backgroundColor = "green";
                     document.querySelector(`.${this.name}.score.input`).value = this.scoreOperation;
 
@@ -173,7 +175,7 @@ class Operation {
     }
     randomNumber() {
         let numberFactor = 0;
-        console.log('randomNumber this.level:', this.level)
+        // console.log('randomNumber this.level:', this.level)
         if (this.level == 1) { // TODO attention string comparé à number
             numberFactor = 10;
         };
@@ -183,9 +185,9 @@ class Operation {
         if (this.level == 3) {
             numberFactor = 1000;
         };
-        console.log('numberFactor:', numberFactor)
+        // console.log('numberFactor:', numberFactor)
         const num = Math.round(numberFactor * Math.random());
-        console.log(num)
+        // console.log(num)
         return num;
     }
 
