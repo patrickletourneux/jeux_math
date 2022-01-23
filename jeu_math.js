@@ -3,7 +3,7 @@
 console.log('math_games')
 
 class Operation {
-    static scoreOperations;
+    static scoreOperations = 0;
     level = 1;
     scoreOperation=0;
     constructor(name,operator){
@@ -100,9 +100,10 @@ class Operation {
             
             const userResult = document.querySelector(`.${this.name}.result`).value;
             if (userResult == goodResult){
-                console.log('good result ',goodResult)
-                this.scoreOperation++
-                console.log('this.scoreOperation',this.scoreOperation)
+                console.log('good result ',goodResult);
+                this.scoreOperation++;
+                console.log('this.scoreOperation',this.scoreOperation);
+                Operation.addOneToGlobalScore();
                 document.querySelector(`.${this.name}.result`).style.backgroundColor  = "green"
             }else{
                 console.log('bad result')
@@ -112,6 +113,10 @@ class Operation {
 
         })
 
+    }
+    static addOneToGlobalScore () {
+        Operation.scoreOperations++
+        console.log('Operation.scoreOperations', Operation.scoreOperations)
     }
     randomNumber(){
         let numberFactor=0;
