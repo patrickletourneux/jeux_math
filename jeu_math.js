@@ -37,6 +37,7 @@ class Operation {
         inputLevel.value = 1;
         inputLevel.classList.add(this.name);
         inputLevel.classList.add('level');
+        inputLevel.classList.add('input');
         divContainerLevels.appendChild(inputLevel);
         divContainer.appendChild(divContainerLevels);
 
@@ -98,6 +99,7 @@ class Operation {
         const localScore = document.createElement('input');
         localScore.classList.add(this.name);
         localScore.classList.add('score');
+        localScore.classList.add('input');
         localScore.type = 'number';
         localScore.id = 'score';
         localScore.name = 'score';
@@ -111,7 +113,9 @@ class Operation {
         this.activEvenement();
     }
     activEvenement() {
-        document.querySelector(`.${this.name}.buttonTest`).addEventListener('click',()=>{
+        // test button for testing result
+        document.querySelector(`.${this.name}.buttonTest`)
+        .addEventListener('click',()=>{
             console.log('bouton test click');
             // compare result to good result
             const value1 = document.querySelector(`.${this.name}.input1`).value;
@@ -128,30 +132,53 @@ class Operation {
                 this.scoreOperation++;
                 console.log('this.scoreOperation',this.scoreOperation);
                 Operation.addOneToGlobalScore();
-                document.querySelector(`.${this.name}.result`).style.backgroundColor  = "green"
+                document.querySelector(`.${this.name}.result`).style.backgroundColor  = "green";
+                document.querySelector(`.${this.name}.score.input`).value = this.scoreOperation;
+            
             }else{
                 console.log('bad result')
                 document.querySelector(`.${this.name}.result`).style.backgroundColor  = "red"
             }
-
-
-        })
+            this.reset(this);
+        });
+        // level update
+        document.querySelector(`.input.level.${this.name}`)
+        .addEventListener('change',(event)=>{
+            this.level = event.target.value
+            this.reset(this);
+        });
 
     }
     static addOneToGlobalScore () {
         Operation.scoreOperations++
         console.log('Operation.scoreOperations', Operation.scoreOperations)
     }
+    reset(instance) {
+        console.log(instance.name)
+        console.log('reset')
+        setTimeout(function(){
+            document.querySelector(`.${instance.name}.input1`).value = instance.randomNumber();
+            document.querySelector(`.input2.${instance.name}`).value = instance.randomNumber();
+            document.querySelector(`.result.${instance.name}`).value = '';
+            document.querySelector(`.result.${instance.name}`).style.backgroundColor = 'white';
+        },1000);
+       
+    }
     randomNumber(){
         let numberFactor=0;
-        if (this.level = 1){
-            numberFactor=1;
-        };
-        if (this.level = 2){
+        console.log('randomNumber this.level:', this.level)
+        if (this.level == 1){   // TODO attention string comparé à number
             numberFactor=10;
-        }; // TODO manage other levels
+        };
+        if (this.level == 2){
+            numberFactor=100;
+        };
+        if (this.level == 3){
+            numberFactor=1000;
+        };
+        console.log('numberFactor:', numberFactor)
         const num = Math.round(numberFactor*Math.random());
-        // console.log(num)
+        console.log(num)
         return num;
     }
         
