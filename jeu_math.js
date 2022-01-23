@@ -3,11 +3,13 @@
 console.log('math_games')
 
 class Operation {
+    static scoreOperations;
+    level = 1;
+    scoreOperation=0;
     constructor(name,operator){
         this.name = name;
         this.operator = operator;
         this.levels=[1,2,3];
-        this.level=1;
     }
     init() {
         const container = document.getElementById('container_operations');
@@ -99,6 +101,8 @@ class Operation {
             const userResult = document.querySelector(`.${this.name}.result`).value;
             if (userResult == goodResult){
                 console.log('good result ',goodResult)
+                this.scoreOperation++
+                console.log('this.scoreOperation',this.scoreOperation)
                 document.querySelector(`.${this.name}.result`).style.backgroundColor  = "green"
             }else{
                 console.log('bad result')
