@@ -82,6 +82,30 @@ class Operation {
         buttonTest.classList.add(this.name);
         divContainer.appendChild(buttonTest);
 
+        const line2 = document.createElement('div');
+        line2.textContent='-------------------';
+        divContainer.appendChild(line2);
+        
+        const divContainerScore = document.createElement('div');
+        divContainerScore.classList.add('score');
+        divContainerScore.classList.add(this.name);
+
+        const labelScore = document.createElement('label');
+        labelScore.for = 'score';
+        labelScore.textContent='score  ';
+        divContainerScore.appendChild(labelScore);
+
+        const localScore = document.createElement('input');
+        localScore.classList.add(this.name);
+        localScore.classList.add('score');
+        localScore.type = 'number';
+        localScore.id = 'score';
+        localScore.name = 'score';
+        localScore.min = 0;
+        localScore.max = 100;
+        localScore.value = 0;
+        divContainerScore.appendChild(localScore);
+        divContainer.appendChild(divContainerScore)
 
         container.appendChild(divContainer);
         this.activEvenement();
