@@ -149,6 +149,7 @@ class Operation {
                 this.level = event.target.value
                 this.reset();
             });
+        
 
     }
     static addOneToGlobalScore() {
@@ -162,7 +163,7 @@ class Operation {
             document.querySelector(`.${instance.name}.input1`).value = instance.randomNumber();
             document.querySelector(`.input2.${instance.name}`).value = instance.randomNumber();
             document.querySelector(`.result.${instance.name}`).value = '';
-            document.querySelector(`.result.${instance.name}`).style.backgroundColor = 'white';
+            document.querySelector(`.result.${instance.name}`).style.backgroundColor = '#ccc';
         }, 1000);
 
     }
@@ -170,7 +171,7 @@ class Operation {
         document.querySelector(`.${this.name}.input1`).value = this.randomNumber();
         document.querySelector(`.input2.${this.name}`).value = this.randomNumber();
         document.querySelector(`.result.${this.name}`).value = '';
-        document.querySelector(`.result.${this.name}`).style.backgroundColor = 'white';
+        document.querySelector(`.result.${this.name}`).style.backgroundColor = '#ccc';
 
     }
     randomNumber() {
@@ -193,16 +194,28 @@ class Operation {
 
 };
 
+const begin = () => {
+    const operations = [
+        ['addition', '+'],
+        ['multiplication', '*'],
+        ['soustraction', '-'],
+        ['division', '/']
+    ]
+    for (operation of operations) {
+        const newOperation = new Operation(operation[0], operation[1]);
+        newOperation.init();
+        // newOperation.randomNumber()
+        
+    };
+}
+begin()
 
-const operations = [
-    ['addition', '+'],
-    ['multiplication', '*'],
-    ['soustraction', '-'],
-    ['division', '/']
-]
-for (operation of operations) {
-    const newOperation = new Operation(operation[0], operation[1]);
-    newOperation.init();
-    // newOperation.randomNumber()
-
-};
+// button reset_all
+document.getElementById('reset_all')
+.addEventListener('click',(event)=>{
+    console.log('reset all')
+    document.getElementById('container_operations').textContent='';
+    begin();
+    Operation.scoreOperations=0;
+    document.getElementById('global_score').textContent = 0;
+})
