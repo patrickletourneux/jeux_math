@@ -80,7 +80,7 @@ class Operation {
         const result = document.createElement('input');
         result.classList.add('result');
         result.classList.add(this.name);
-        result.style.backgroundColor = '#ccc';
+        result.style.backgroundColor = '#00d4ff';
         result.type = 'number';
         divContainer.appendChild(result);
 

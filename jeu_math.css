@@ -24,9 +24,10 @@
     display: inline;
 }
 
-input{
+input, select{
     width: 50  px;
     text-align: center;
+    background-color: #ccc;
 }
 .result{
     height: 2rem;
