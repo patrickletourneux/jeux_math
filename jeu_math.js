@@ -48,8 +48,9 @@ class Operation {
 
         const input1 = document.createElement('input');
         input1.classList.add('input1')
-        input1.classList.add(this.name)
+        input1.classList.add(this.name);
         input1.value = this.randomNumber()
+        input1.type = 'number'
 
         divContainer.appendChild(input1);
 
@@ -64,6 +65,7 @@ class Operation {
         input2.classList.add('input2');
         input2.classList.add(this.name);
         input2.value = this.randomNumber();
+        input2.type = 'number';
         divContainer.appendChild(input2);
 
         const operatorEgal = document.createElement('p');
@@ -76,6 +78,7 @@ class Operation {
         result.classList.add('result');
         result.classList.add(this.name);
         result.style.backgroundColor = '#ccc';
+        result.type = 'number';
         divContainer.appendChild(result);
 
         const buttonTest = document.createElement('button');
