@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,16 +9,24 @@
     <link rel="stylesheet" href="jeu_math.css">
     <title>math_games</title>
 </head>
+
 <body>
     <header>
         <h1>math_games</h1>
         <h2>class test</h2>
+        <div>-----------------------------------</div>
     </header>
-<div>-------------------------</div>
     <main>
+        <div class="headmanagement">
+            <div>
+                darkmode
+                <input type="range" min="1" max="2" value="1" class="slider" id="myDarkMode">
+            </div>
+            <button id="reset_all">reset_all</button>
+        </div>
 
-        <button id="reset_all">reset_all</button>
-        
+
+
         <div class="global_score">
             <p>global_score : </p>
             <p id="global_score">0</p>
@@ -30,4 +39,5 @@
     <footer></footer>
 </body>
 <script src="jeu_math.js"></script>
+
 </html>

@@ -41,16 +41,6 @@ class Operation {
             selectLevel.appendChild(option);
         }
 
-        // const inputLevel = document.createElement('input');
-        // inputLevel.type = 'number';
-        // inputLevel.id = 'level';
-        // inputLevel.name = 'level';
-        // inputLevel.min = 1;
-        // inputLevel.max = 3;
-        // inputLevel.value = 1;
-        // inputLevel.classList.add(this.name);
-        // inputLevel.classList.add('level');
-        // inputLevel.classList.add('input');
         divContainerLevels.appendChild(selectLevel);
         divContainer.appendChild(divContainerLevels);
 
@@ -234,4 +224,25 @@ document.getElementById('reset_all')
         begin();
         Operation.scoreOperations = 0;
         document.getElementById('global_score').textContent = 0;
+        document.getElementById('myDarkMode').value = 1;
+        document.querySelector('body')
+            .classList.remove('darkMode');
+        const operations = document.querySelectorAll('.container_operation')
+        for (let item of operations) {
+            item.classList.remove('darkMode');
+        }
+
+
+
+    });
+document.getElementById('myDarkMode')
+    .addEventListener('change', (event) => {
+        console.log('darkmode change', event.target.value)
+        document.querySelector('body')
+            .classList.toggle('darkMode');
+        const operations = document.querySelectorAll('.container_operation')
+        for (let item of operations) {
+            item.classList.toggle('darkMode');
+        }
+
     })
