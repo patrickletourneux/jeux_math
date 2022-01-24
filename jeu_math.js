@@ -28,17 +28,30 @@ class Operation {
         labelLevel.for = 'level';
         labelLevel.textContent = 'level  ';
         divContainerLevels.appendChild(labelLevel);
-        const inputLevel = document.createElement('input');
-        inputLevel.type = 'number';
-        inputLevel.id = 'level';
-        inputLevel.name = 'level';
-        inputLevel.min = 1;
-        inputLevel.max = 3;
-        inputLevel.value = 1;
-        inputLevel.classList.add(this.name);
-        inputLevel.classList.add('level');
-        inputLevel.classList.add('input');
-        divContainerLevels.appendChild(inputLevel);
+        const selectLevel = document.createElement('select');
+        selectLevel.name = 'level';
+        selectLevel.id = 'level';
+        selectLevel.classList.add(this.name);
+        selectLevel.classList.add('level');
+        selectLevel.classList.add('select');
+        for (let item of this.levels) {
+            const option = document.createElement('option');
+            option.value = item;
+            option.textContent = item;
+            selectLevel.appendChild(option);
+        }
+
+        // const inputLevel = document.createElement('input');
+        // inputLevel.type = 'number';
+        // inputLevel.id = 'level';
+        // inputLevel.name = 'level';
+        // inputLevel.min = 1;
+        // inputLevel.max = 3;
+        // inputLevel.value = 1;
+        // inputLevel.classList.add(this.name);
+        // inputLevel.classList.add('level');
+        // inputLevel.classList.add('input');
+        divContainerLevels.appendChild(selectLevel);
         divContainer.appendChild(divContainerLevels);
 
 
@@ -147,12 +160,12 @@ class Operation {
                 this.resetDelay();
             });
         // level update
-        document.querySelector(`.input.level.${this.name}`)
+        document.querySelector(`.select.level.${this.name}`)
             .addEventListener('change', (event) => {
                 this.level = event.target.value
                 this.reset();
             });
-        
+
 
     }
     static addOneToGlobalScore() {
@@ -208,17 +221,17 @@ const begin = () => {
         const newOperation = new Operation(operation[0], operation[1]);
         newOperation.init();
         // newOperation.randomNumber()
-        
+
     };
 }
 begin()
 
 // button reset_all
 document.getElementById('reset_all')
-.addEventListener('click',(event)=>{
-    console.log('reset all')
-    document.getElementById('container_operations').textContent='';
-    begin();
-    Operation.scoreOperations=0;
-    document.getElementById('global_score').textContent = 0;
-})
+    .addEventListener('click', (event) => {
+        console.log('reset all')
+        document.getElementById('container_operations').textContent = '';
+        begin();
+        Operation.scoreOperations = 0;
+        document.getElementById('global_score').textContent = 0;
+    })
