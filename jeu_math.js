@@ -9,7 +9,7 @@ class Operation {
     constructor(name, operator) {
         this.name = name;
         this.operator = operator;
-        this.levels = [1, 2, 3];
+        this.levels = [1,2,3,4,5];
     }
     init() {
         const container = document.getElementById('container_operations');
@@ -183,13 +183,19 @@ class Operation {
     randomNumber() {
         let numberFactor = 0;
         // console.log('randomNumber this.level:', this.level)
-        if (this.level == 1) { // TODO attention string comparé à number
+        if (this.level == 1) { 
             numberFactor = 10;
         };
         if (this.level == 2) {
-            numberFactor = 100;
+            numberFactor = 20;
         };
         if (this.level == 3) {
+            numberFactor = 50;
+        };
+        if (this.level == 4) {
+            numberFactor = 100;
+        };
+        if (this.level == 5) {
             numberFactor = 1000;
         };
         // console.log('numberFactor:', numberFactor)
