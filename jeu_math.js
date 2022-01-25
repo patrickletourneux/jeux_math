@@ -80,7 +80,7 @@ class Operation {
         const result = document.createElement('input');
         result.classList.add('result');
         result.classList.add(this.name);
-        result.style.backgroundColor = '#00d4ff';
+        result.style.backgroundColor = '#B5CBB7';
         result.type = 'number';
         divContainer.appendChild(result);
 
@@ -169,7 +169,7 @@ class Operation {
             document.querySelector(`.${instance.name}.input1`).value = instance.randomNumber();
             document.querySelector(`.input2.${instance.name}`).value = instance.randomNumber();
             document.querySelector(`.result.${instance.name}`).value = '';
-            document.querySelector(`.result.${instance.name}`).style.backgroundColor = '#ccc';
+            document.querySelector(`.result.${instance.name}`).style.backgroundColor = '#818479';
         }, 1000);
 
     }
@@ -177,7 +177,7 @@ class Operation {
         document.querySelector(`.${this.name}.input1`).value = this.randomNumber();
         document.querySelector(`.input2.${this.name}`).value = this.randomNumber();
         document.querySelector(`.result.${this.name}`).value = '';
-        document.querySelector(`.result.${this.name}`).style.backgroundColor = '#ccc';
+        document.querySelector(`.result.${this.name}`).style.backgroundColor = '#818479';
 
     }
     randomNumber() {

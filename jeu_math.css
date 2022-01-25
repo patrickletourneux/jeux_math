@@ -1,3 +1,7 @@
+/* colors  Array 
+["818479","b5cbb7","d2e4c4","e4e9b2","e7e08b"] */
+
+
 #container_operations{
     display: flex;
     align-items: center;
@@ -27,7 +31,7 @@
 input, select{
     width: 50  px;
     text-align: center;
-    background-color: #ccc;
+    background-color: #818479;
 }
 .result{
     height: 2rem;
@@ -43,11 +47,12 @@ h1{
     font-size: 2rem;
 }
 #reset_all{
-    background-color: yellow;
+    background-color: #E7E08B;
 }
 
 button{
     height: 2rem;
+    background-color: #E7E08B;
 }
 
 .headmanagement{
@@ -59,7 +64,7 @@ button{
     -webkit-appearance: none;  /* Override default CSS styles */
     appearance: none;
     width: 50px;
-    background-color: yellow;
+    background-color: #E7E08B;
 }
 
 .darkMode{
