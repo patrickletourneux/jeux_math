@@ -169,15 +169,15 @@ class Operation {
             document.querySelector(`.${instance.name}.input1`).value = instance.randomNumber();
             document.querySelector(`.input2.${instance.name}`).value = instance.randomNumber();
             document.querySelector(`.result.${instance.name}`).value = '';
-            document.querySelector(`.result.${instance.name}`).style.backgroundColor = '#818479';
+            document.querySelector(`.result.${instance.name}`).style.backgroundColor = 'rgb(181, 203, 183)';
         }, 1000);
 
     }
     reset() {
-        document.querySelector(`.${this.name}.input1`).value = this.randomNumber();
+        document.querySelector(`.input1.${this.name}`).value = this.randomNumber();
         document.querySelector(`.input2.${this.name}`).value = this.randomNumber();
         document.querySelector(`.result.${this.name}`).value = '';
-        document.querySelector(`.result.${this.name}`).style.backgroundColor = '#818479';
+        document.querySelector(`.result.${this.name}`).style.backgroundColor = 'rgb(181, 203, 183)';
 
     }
     randomNumber() {
